@@ -8,6 +8,9 @@ COPY servers.preset /usr/lib/systemd/system-preset/01-servers.preset
 
 # install bind9 and various stuff
 RUN <<EORUN
+# fix/workaround https://bugzilla.redhat.com/show_bug.cgi?id=2432642
+dnf install -y --setopt=install_weak_deps=false bubblewrap
+
 source /etc/os-release
 curl "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/config_file.repo?os=${ID}&dist=${VERSION_ID}&source=script" > /etc/yum.repos.d/runner_gitlab-runner.repo
 dnf install -y --setopt=install_weak_deps=false gitlab-runner git

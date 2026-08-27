@@ -20,7 +20,7 @@ rm -Rf /var/log/dnf5.log /var/lib/dnf/ /var/cache/ /run/dnf
 EORUN
 
 # disable the flood of message on the console
-COPY disable-flood.conf /usr/lib/sysctl.d/60-disable-flood.conf
+#COPY disable-flood.conf /usr/lib/sysctl.d/60-disable-flood.conf
 
 RUN <<EORUN2
 systemctl preset-all

@@ -1,0 +1,4 @@
+enable systemd-networkd.service
+enable sshd.service
+enable bootc-fetch-apply-updates.timer
+enable systemd-timesyncd.service
